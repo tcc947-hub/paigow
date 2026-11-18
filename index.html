@@ -101,7 +101,7 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   display:flex;flex-direction:column;flex:none;
   width:clamp(40px,12vw,52px);aspect-ratio:1/2;
   /* 仿赌场用的黑色电木牌：表面有柔和的高光，边缘有厚度，四角略圆 */
-  background:linear-gradient(176deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 14%),url(tile-bg.png) center/cover;
+  background:linear-gradient(176deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 16%),#1b1b1b;
   border:0;border-radius:6px;padding:0;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),inset 0 -2px 3px rgba(0,0,0,.7),0 2px 0 #050505,0 5px 10px rgba(0,0,0,.6);
   cursor:pointer;overflow:hidden;
@@ -170,7 +170,7 @@ details p{margin:6px 0 0}
 
 <div class="app">
   <header class="top">
-    <div class="brand"><span data-i18n="brand">牌九</span> <span style="font-size:12px;font-weight:400;opacity:.75;letter-spacing:.5px">v60</span></div>
+    <div class="brand"><span data-i18n="brand">牌九</span> <span style="font-size:12px;font-weight:400;opacity:.75;letter-spacing:.5px">v64</span></div>
     <div class="bank"><span data-i18n="chipsLbl">筹码</span><b id="bank">1000</b><button class="btn ghost small" id="btnSound" type="button">声音：开</button><button class="btn ghost small" id="btnLang" type="button">English</button></div>
     <div class="mp" id="mpBar">
       <span class="mp-st" id="mpStatus">单机模式</span>
@@ -277,8 +277,8 @@ const I={
   bet:['下注','Bet'],
   sum:['玩法说明（依据新西兰赌场规则 Division 12 · Pai Gow）','How to play (based on NZ casino rules, Division 12 · Pai Gow)'],
   rules:[
-    '<p>使用 32 张骨牌。每位玩家和庄家各 4 张，分成小墩和大墩（每墩 2 张），大墩须不小于小墩。</p><p>牌型从大到小：16 种对子（至尊、天、地、人、鹅、梅、长三、板凳、斧头、红头十、长腿七、大头六、杂九、杂八、杂七、杂五）＞ 天旺、地旺、天杠、地杠、天高九、地高九 ＞ 点数（两张相加取个位，同点比较最大的一张单牌）。</p><p>大墩和小墩分别与庄家比较。两墩都大于庄家则赢，按 1 比 1 支付并扣除 5% 佣金；两墩都不大于庄家则输；一胜一负为平手。点数和牌型完全相同时庄家赢。</p><p>庄家按 House Way（附录 4）理牌，理牌的理由会显示在庄家牌下方。</p><p>未包含：切牌、庄家轮庄、共庄，以及附录 4 中对子拆分表和第 5、6 节的细则。</p>',
-    '<p>32 tiles. Each player and the dealer receive 4 tiles, split into a low hand and a high hand of 2 tiles each. The high hand must be at least as strong as the low hand.</p><p>Ranking, high to low: 16 pairs (Gee Jun, Teen, Day, Yun, Ngor, Mooy, Cheong Sum, Ban Tang, Foo Tau, Hoong Tau Sap, Ko Kiok Chaat, Lim Lum Lok, Chap Gow, Chap Paat, Chap Chaat, Chap Ng) &gt; Teen Wong, Day Wong, Teen Gong, Day Gong, Teen High Nine, Day High Nine &gt; points (the last digit of the sum; ties go to the highest single tile).</p><p>Each of your hands is compared with the dealer\'s. Beating the dealer in both hands wins, paid 1:1 less 5% commission. Losing both loses. One win and one loss is a push. Identical hands go to the dealer.</p><p>The dealer sets hands using House Way (Appendix 4). The reason is shown under the dealer\'s tiles.</p><p>Not included: cutting, banker rotation, co-banking, and some House Way details (the pair-split table and sections 5–6).</p>'
+    '<p>使用 32 张骨牌。每位玩家和庄家各 4 张，分成小墩和大墩（每墩 2 张），大墩须不小于小墩。</p><p>牌型从大到小：16 种对子（至尊、天、地、人、鹅、梅、长三、板凳、斧头、红头十、长腿七、大头六、杂九、杂八、杂七、杂五）＞ 天旺、地旺、天杠、地杠、天高九、地高九 ＞ 点数（两张相加取个位，同点比较最大的一张单牌）。</p><p>大墩和小墩分别与庄家比较。两墩都大于庄家则赢，按 1 比 1 支付并扣除 5% 佣金；两墩都不大于庄家则输；一胜一负为平手。点数和牌型完全相同时庄家赢。</p><p>庄家按 House Way（附录 4）理牌，理牌的理由会显示在庄家牌下方。已包含附录 4 的全部条文：不拆对子（2.2）、拆对子表（2.3）、对子与旺杠高九（3）、一般情况（4）、高牌放置（5）以及 6.1、6.2 例外。</p><p>联机时，庄家最多连续坐庄 2 局，然后轮给下一位，且下一位须能付清其他人的下注。庄家的净收入扣 5% 佣金。</p><p>未包含：附录 5 的具名切牌（目前只有对半切、随机切和指定切点）、9.6 的 +4/−4 选项、共庄（庄家与赌场共同坐庄），以及第 12 条实物牌桌的异常处理。</p>',
+    '<p>32 tiles. Each player and the dealer receive 4 tiles, split into a low hand and a high hand of 2 tiles each. The high hand must be at least as strong as the low hand.</p><p>Ranking, high to low: 16 pairs (Gee Jun, Teen, Day, Yun, Ngor, Mooy, Cheong Sum, Ban Tang, Foo Tau, Hoong Tau Sap, Ko Kiok Chaat, Lim Lum Lok, Chap Gow, Chap Paat, Chap Chaat, Chap Ng) &gt; Teen Wong, Day Wong, Teen Gong, Day Gong, Teen High Nine, Day High Nine &gt; points (the last digit of the sum; ties go to the highest single tile).</p><p>Each of your hands is compared with the dealer\'s. Beating the dealer in both hands wins, paid 1:1 less 5% commission. Losing both loses. One win and one loss is a push. Identical hands go to the dealer.</p><p>The dealer sets hands using House Way (Appendix 4), including all its rules: pairs kept together (2.2), the pair-split table (2.3), pairs and Wong/Gong/High Nine (3), general play (4), high-tile placement (5), and the exceptions in 6.1 and 6.2. The reason is shown under the dealer\'s tiles.</p><p>In multiplayer, a dealer holds for at most 2 rounds in a row, then the bank passes on, to a player who can cover the others\' bets. The dealer\'s net winnings are subject to a 5% commission.</p><p>Not included: the named cuts in Appendix 5 (only cut in half, random cut and chosen cut point are available), the +4/−4 option in 9.6, co-banking (dealer shared with the house), and the physical-table irregularities in section 12.</p>'
   ]
 };
 
@@ -296,7 +296,17 @@ const TILE_SET=(()=>{
   return out;
 })();
 
-function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+/* 均匀随机整数 0..n-1：优先用加密随机数，避免取模偏差 */
+function randInt(n){
+  if(window.crypto&&crypto.getRandomValues){
+    const a=new Uint32Array(1), lim=Math.floor(4294967296/n)*n;
+    let x;do{crypto.getRandomValues(a);x=a[0];}while(x>=lim);
+    return x%n;
+  }
+  return Math.floor(Math.random()*n);
+}
+function shuffleUniform(a){for(let i=a.length-1;i>0;i--){const j=randInt(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+function shuffle(a){return shuffleUniform(a);}
 function tileId(t){return Math.min(t.a,t.b)+'-'+Math.max(t.a,t.b);}
 function tot(t){return t.a+t.b;}
 /* 至尊（1-2、2-4）两张牌各可按 3 或 6 计点（附录 3 注释）；其他牌按实际点数 */
@@ -381,12 +391,48 @@ function kindOf(ts){return pairNo(ts)?'pair':(wgnNo(ts)?'wgn':'point');}
 const KIND_NAME={pair:['对子','Pair'],wgn:['旺杠高九','Wong / Gong / High Nine'],point:['点数','Points']};
 
 /* 庄家理牌：House Way（附录 4）。返回 {front 小墩, back 大墩, valid, reason} */
+/* 2.2 不拆的对子：鹅、板凳（点数 4）、杂五（5）、长三、大头六（6）、梅、红头十（10）、斧头（11）。按名次编号 */
+const KEEP_PAIR=new Set([5,6,7,8,9,10,12,16]);
+/* 2.3 拆对子表。键为对子名次（1 至尊，2 天，3 地，13 杂九，14 杂八，15 杂七）。
+   每条为另外两张牌：数字 = 两张牌点数之和，'T' = 天 6-6，'D' = 地 1-1，'TD' = 天或地，'np' = 两张不能是同一张牌 */
+const TD_PAT=[[9,11],[9,8],[9,7],[9,6],[9,5],[9,4],[8,8,'np'],[8,7],[8,6],[8,5],[8,4],[7,7,'np'],[7,6],[7,5],[7,4],[6,6,'np'],[6,5],[6,4]];
+const SPLIT_TABLE={
+  1:[[6,6,'np'],[6,5],[6,4]],
+  2:TD_PAT,
+  3:TD_PAT,
+  13:[['T','D'],['TD',10],[10,10,'np']],
+  14:[['T','D'],['TD',11],['TD',10],[11,10],[11,9],[10,10,'np']],
+  15:[['T','D'],['TD',11],['TD',10],[11,10],[10,10,'np']]
+};
+function findPairs(ts){
+  const out=[];
+  for(let i=0;i<4;i++)for(let j=i+1;j<4;j++){const pn=pairNo([ts[i],ts[j]]);if(pn)out.push({i,j,pn});}
+  return out;
+}
+function restOf(ts,p){return [0,1,2,3].filter(k=>k!==p.i&&k!==p.j).map(k=>ts[k]);}
+function matchItem(item,c){
+  if(item==='T')return c.n==='T';
+  if(item==='D')return c.n==='D';
+  if(item==='TD')return c.n==='T'||c.n==='D';
+  return c.n===null&&c.t===item;
+}
+function splitMatch(pn,comp){
+  const cs=comp.map(t=>({id:tileId(t),n:tileId(t)==='6-6'?'T':(tileId(t)==='1-1'?'D':null),t:tot(t)}));
+  for(const pat of SPLIT_TABLE[pn]||[]){
+    const [a,b,flag]=pat;
+    if(flag==='np'&&cs[0].id===cs[1].id)continue;
+    if((matchItem(a,cs[0])&&matchItem(b,cs[1]))||(matchItem(a,cs[1])&&matchItem(b,cs[0])))return true;
+  }
+  return false;
+}
+function cmpKeys(a,b){for(let i=0;i<a.length;i++)if(a[i]!==b[i])return a[i]-b[i];return 0;}
+
 function houseWay(ts){
   const combos=[];
   for(let i=0;i<4;i++)for(let j=i+1;j<4;j++){
     const front=[ts[i],ts[j]];
     const back=ts.filter((_,k)=>k!==i&&k!==j);
-    combos.push({front,back,valid:score(back)>=score(front)});
+    combos.push({front,back,fi:[i,j],valid:score(back)>=score(front)});
   }
   const valid=combos.filter(c=>c.valid);
   if(!valid.length){
@@ -394,13 +440,20 @@ function houseWay(ts){
     return {front:c.front,back:c.back,valid:false,reason:L('四张牌无法组成不倒的两墩，庄家倒牌。','The four tiles cannot form a valid split, so the dealer fouls.')};
   }
   let cands=valid;
+  const inF=(c,k)=>c.fi.includes(k);
+  const pairs=findPairs(ts);
 
-  /* 2.2 不拆分：两张相同的 4、5、6、红头十、斧头 放在同一墩 */
-  const keepIds=['4-4','5-5','6-6','4-6','5-6'];
-  const keepId=keepIds.find(id=>ts.filter(t=>tileId(t)===id).length===2);
-  if(keepId){
-    const kept=cands.filter(c=>c.front.filter(t=>tileId(t)===keepId).length===2||c.back.filter(t=>tileId(t)===keepId).length===2);
+  /* 2.2 不拆：这些对子的两张放在同一墩 */
+  const keepP=pairs.find(p=>KEEP_PAIR.has(p.pn));
+  if(keepP){
+    const kept=cands.filter(c=>inF(c,keepP.i)===inF(c,keepP.j));
     if(kept.length)cands=kept;
+  }
+  /* 2.3 拆对子：四张里的一对符合拆对子表（且另两张不成对），把这对拆开，一张在小墩，一张在大墩 */
+  const splitP=pairs.find(p=>!KEEP_PAIR.has(p.pn)&&SPLIT_TABLE[p.pn]&&!pairNo(restOf(ts,p))&&splitMatch(p.pn,restOf(ts,p)));
+  if(splitP){
+    const sp=cands.filter(c=>inF(c,splitP.i)!==inF(c,splitP.j));
+    if(sp.length)cands=sp;
   }
 
   /* 2.1 两张都是对子：各打一墩 */
@@ -410,11 +463,11 @@ function houseWay(ts){
     return {...c,valid:true,reason:L(`两墩都是对子：大墩${handName(c.back)}，小墩${handName(c.front)}，各打一墩（House Way 2.1）。`,`Both hands are pairs: high ${handName(c.back)}, low ${handName(c.front)}, one pair per hand (House Way 2.1).`)};
   }
 
-  /* 2.3 有对子可打时，大墩优先打最大的对子 */
+  /* 3.1 有对子可打时先打对子：大墩打最大的对子 */
   const pairBack=cands.filter(c=>pairNo(c.back));
   if(pairBack.length){
     const c=pairBack.sort((x,y)=>score(y.back)-score(x.back))[0];
-    return {...c,valid:true,reason:L(`有对子可以打，大墩打${handName(c.back)}，小墩${handName(c.front)}（House Way 第 2 条：对子优先）。`,`A pair is available: high ${handName(c.back)}, low ${handName(c.front)} (House Way rule 2: pairs first).`)};
+    return {...c,valid:true,reason:L(`有对子可以打，大墩打${handName(c.back)}，小墩${handName(c.front)}（House Way 3.1：对子优先）。`,`A pair is available: high ${handName(c.back)}, low ${handName(c.front)} (House Way 3.1: pairs first).`)};
   }
 
   /* 3 没有对子：先看高九、杠、旺（3.2、3.3） */
@@ -446,22 +499,46 @@ function houseWay(ts){
     return {...pick,valid:true,reason:L(`大墩${handName(pick.back)}，小墩${handName(pick.front)}。${why}`,`High ${handName(pick.back)}, low ${handName(pick.front)}. ${why}`)};
   }
 
-  /* 4 一般情况：小墩至少和谐三，并尽量大 */
+  /* 5 牌的高低放置（同点数时的取舍）：5.4 天地分墩、5.1/5.2 最大的牌、不让两张最大的牌同墩 */
+  const top=[0,1,2,3].sort((x,y)=>TILE_RANK[tileId(ts[x])]-TILE_RANK[tileId(ts[y])]);
+  const t1=top[0], t2=top[1];
+  const teen=ts.findIndex(t=>tileId(t)==='6-6'), day=ts.findIndex(t=>tileId(t)==='1-1');
+  const restTot=[0,1,2,3].filter(k=>k!==teen&&k!==day).map(k=>tot(ts[k])).sort((a,b)=>a-b).join(',');
+  const teenHigh=!(restTot==='4,5'||restTot==='10,11');
+  const k54=c=>(teen>=0&&day>=0&&inF(c,teen)!==inF(c,day))?((!inF(c,teen))===teenHigh?0:1):0;
+  const lowKey=c=>[k54(c),(inF(c,t1)===inF(c,t2))?1:0,inF(c,t1)?0:1];
+  const highKey=c=>[k54(c),(inF(c,t1)===inF(c,t2))?1:0,inF(c,t1)?1:0];
   let pick,why;
-  const hm=cands.filter(c=>score(c.front)>=HARMONY);
-  if(hm.length){
-    pick=hm.sort((x,y)=>(pts(y.front)-pts(x.front))||(pts(y.back)-pts(x.back)))[0];
-    const tsum=ts.reduce((s,t)=>s+tot(t),0);
-    const hasGee=ts.some(geeTile);
-    why=hasGee?L('含至尊牌，两墩点数可按 3 或 6 计，按 House Way 4.1 让小墩尽量大。','Contains a Gee Jun tile, which counts as 3 or 6, so House Way 4.1 makes the low hand as large as possible.'):L(`四张牌合计 ${tsum} 点，两墩点数相加的个位固定为 ${tsum%10}。小墩能达到和谐三以上，按 House Way 4.1 让小墩尽量大，取 ${pts(pick.front)} 点；大墩是剩下的 ${pts(pick.back)} 点。`,`The four tiles total ${tsum} points, so the two hands always add up to last digit ${tsum%10}. The low hand can reach Harmony 3 or better, so House Way 4.1 makes it as large as possible: ${pts(pick.front)} points. The high hand is what remains: ${pts(pick.back)} points.`);
+  const pairsAll=pairs.length>0;
+  const exc=!pairsAll&&[6,7,11].every(v=>ts.some(t=>tot(t)===v));
+
+  if(exc){
+    /* 6.1 例外：6、7、11 和一张不成对的牌，即使达不到和谐三也要最大化小墩 */
+    pick=cands.slice().sort((x,y)=>(pts(y.front)-pts(x.front))||cmpKeys(lowKey(x),lowKey(y))||(pts(y.back)-pts(x.back)))[0];
+    why=L('四张牌含 6、7、11 和一张不成对的牌，按 House Way 6.1 最大化小墩（即使达不到和谐三）。','The tiles include 6, 7, 11 and a non-pairing tile, so House Way 6.1 maximises the low hand even without Harmony 3.');
   }else{
-    const h8=cands.filter(c=>pts(c.back)>=8);
-    if(h8.length){
-      pick=h8.sort((x,y)=>pts(y.back)-pts(x.back))[0];
-      why=L('小墩达不到和谐三，所以让大墩达到 8 点以上并尽量大（House Way 4.2）。','The low hand cannot reach Harmony 3, so make the high hand 8 or more and as high as possible (House Way 4.2).');
+    /* 4 一般情况 */
+    const hasGee=ts.some(geeTile);
+    const hm=cands.filter(c=>score(c.front)>=HARMONY);
+    if(hm.length){
+      pick=hm.slice().sort((x,y)=>(pts(y.front)-pts(x.front))||cmpKeys(lowKey(x),lowKey(y))||(pts(y.back)-pts(x.back)))[0];
+      const tsum=ts.reduce((s,t)=>s+tot(t),0);
+      why=L(`${hasGee?'含至尊牌（可当 3 或 6）。':''}小墩能达到和谐三以上，按 House Way 4.1 让小墩尽量大，取 ${pts(pick.front)} 点（四张合计 ${tsum} 点）。`,`${hasGee?'Contains Gee Jun (counts as 3 or 6). ':''}The low hand reaches Harmony 3 or better, so House Way 4.1 maximises it: ${pts(pick.front)} points (four tiles total ${tsum}).`);
     }else{
-      pick=cands.sort((x,y)=>pts(y.front)-pts(x.front))[0];
-      why=L('大墩也达不到 8 点，所以让小墩点数尽量大（House Way 4.3）。','The high hand cannot reach 8, so maximise the low hand (House Way 4.3).');
+      const h8=cands.filter(c=>pts(c.back)>=8);
+      if(h8.length){
+        /* 4.2 + 5.3：让大墩达到 8 点以上并尽量大，并把最大的牌放在大墩 */
+        pick=h8.slice().sort((x,y)=>(pts(y.back)-pts(x.back))||cmpKeys(highKey(x),highKey(y))||(pts(y.front)-pts(x.front)))[0];
+        why=L('小墩达不到和谐三，按 House Way 4.2 让大墩达到 8 点以上并尽量大。','The low hand cannot reach Harmony 3, so House Way 4.2 makes the high hand 8 or more and as large as possible.');
+      }else{
+        pick=cands.slice().sort((x,y)=>(pts(y.front)-pts(x.front))||cmpKeys(lowKey(x),lowKey(y)))[0];
+        why=L('大墩也达不到 8 点，按 House Way 4.3 让小墩点数尽量大。','The high hand cannot reach 8, so House Way 4.3 maximises the low hand.');
+      }
+    }
+    /* 6.2：可以打成 8/8 或 7/9 时打 7/9，除非有低十（红头十 4-6） */
+    if(pts(pick.front)===8&&pts(pick.back)===8&&!ts.some(t=>tileId(t)==='4-6')){
+      const alt=cands.find(c=>pts(c.front)===7&&pts(c.back)===9);
+      if(alt){pick=alt;why+=L(' 按 House Way 6.2 打成 7/9（8/8 可以打，但不是首选）。',' House Way 6.2 prefers 7/9 over 8/8 (no Low 10).');}
     }
   }
   return {...pick,valid:true,reason:L(`大墩${handName(pick.back)}，小墩${handName(pick.front)}。${why}`,`High ${handName(pick.back)}, low ${handName(pick.front)}. ${why}`)};
@@ -643,8 +720,8 @@ function pushShuffle(){
   };
   const finish=()=>{
     if(done)return;done=true;ac.abort();
-    const sorted=[...P].sort((a,b)=>Math.floor(a.y/60)-Math.floor(b.y/60)||a.x-b.x);
-    S.deck=sorted.map(p=>p.t);
+    /* 洗牌结果不再由牌停在哪里决定（按位置排序会偏向原来的顺序和某些区域），改为对所有牌做均匀随机排列 */
+    S.deck=shuffleUniform(P.map(p=>p.t));
     box.classList.remove('table');box.style.transform='';
     PHYS=null;S.busy=false;render();
   };
@@ -1303,7 +1380,7 @@ function applyDoc(raw){
     }
   }
   /* 庄家座位已经没人（离开或掉线）：由当前最小编号的有效座位接任 */
-  if(stage==='idle'&&!aliveSeat(d,dealer)&&seatsOf(d)[0]===me.seat){me.ref.update({dealer:me.seat}).catch(mpErr);return;}
+  if(stage==='idle'&&!aliveSeat(d,dealer)&&seatsOf(d)[0]===me.seat){me.ref.update({dealer:me.seat,held:1}).catch(mpErr);return;}
   /* 庄家：所有闲家都开牌后自动结算（放到下一拍执行，避免重入） */
   if(stage==='arrange'&&me.iAmDealer&&!me.settling&&allOpened(d)){
     me.settling=true;
@@ -1342,16 +1419,19 @@ function mpSettle(){
   const dF=(dh.front||[]).map(dec), dB=(dh.back||[]).map(dec);
   const bust=dh.valid===false, sF=score(dF), sB=score(dB);
   const bank={...(d.bank||{})}, res={};
-  let dealerDelta=0;
+  let dealerDelta=0, lossSum=0, winSum=0;
   for(const s of pl(d)){
     const h=d.hands[K(s)];
     const fw=bust||score((h.front||[]).map(dec))>sF;
     const bw=bust||score((h.back||[]).map(dec))>sB;
     const cur=bank[K(s)]??1000, bet=Math.min(MP_BET,cur);
     const delta=fw&&bw?Math.floor(bet*0.95):(!fw&&!bw?-bet:0);
-    bank[K(s)]=cur+delta;dealerDelta-=delta;
+    bank[K(s)]=cur+delta;if(delta<0)lossSum+=bet;else if(delta>0)winSum+=delta;
     res[K(s)]={fw,bw,delta};
   }
+  /* 6.14：庄家净收入扣 5% 佣金（归赌场），输家付出的全额进入庄家净额 */
+  const net=lossSum-winSum, comm=net>0?Math.floor(net*0.05):0;
+  dealerDelta=net-comm;
   bank[K(dealer)]=(bank[K(dealer)]??1000)+dealerDelta;
   res[K(dealer)]={fw:false,bw:false,delta:dealerDelta};
   me.ref.update({stage:'result',res,bank}).catch(mpErr);
@@ -1359,8 +1439,18 @@ function mpSettle(){
 /* 庄家：下一局，庄家顺时针交给下一位入座的人 */
 function mpNext(){
   const d=MP.doc||{};
-  const next=orderedPlayers(MP.seat,seatsOf(d))[0]??MP.seat;
-  MP.ref.update({stage:'idle',round:(d.round||0)+1,dealer:next,dealt:null,hands:null,res:null,deck:null}).catch(mpErr);
+  const seats=seatsOf(d), bank=d.bank||{};
+  /* 5.3(c)：庄家须能付清其他人的下注 */
+  const funds=k=>(bank[K(k)]??1000)>=MP_BET*Math.max(1,seats.length-1);
+  /* 5.4：同一人最多连续坐庄 2 局 */
+  const held=d.held||1;
+  if(held<2&&seats.includes(MP.seat)&&funds(MP.seat)){
+    MP.ref.update({stage:'idle',round:(d.round||0)+1,dealer:MP.seat,held:held+1,dealt:null,hands:null,res:null,deck:null}).catch(mpErr);
+    return;
+  }
+  const order=orderedPlayers(MP.seat,seats);
+  const next=order.find(funds)??order[0]??MP.seat;
+  MP.ref.update({stage:'idle',round:(d.round||0)+1,dealer:next,held:1,dealt:null,hands:null,res:null,deck:null}).catch(mpErr);
 }
 /* 其他座位：只读显示，已开牌或结算后才显示牌面 */
 function renderOthers(){
